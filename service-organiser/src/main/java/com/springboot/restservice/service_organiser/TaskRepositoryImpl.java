@@ -13,13 +13,8 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class TaskRepositoryImpl implements TaskRepository {
 
-    //создание списка через анонимный класс {{...}}
-    private List<Task> tasks = new LinkedList<>(){{
-        add(new Task("Task one"));
-        add(new Task("Task two"));
-    }};
+    private List<Task> tasks = new LinkedList<>();
     
-        
     @Override
     public List<Task> findAll() {
         return tasks;
@@ -34,5 +29,11 @@ public class TaskRepositoryImpl implements TaskRepository {
     public Optional<Task> findById(UUID id) {
         return tasks.stream().filter(task->task.id().equals(id)).findFirst();
     }
+
+    public List<Task> getTasks() {
+        return tasks;
+    }
+    
+    
 
 }
