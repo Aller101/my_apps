@@ -24,7 +24,7 @@ import org.springframework.web.util.UriComponentsBuilder;
  * @author alekseynesterov
  */
 @ExtendWith(MockitoExtension.class)
-public class TaskControllerTest {
+public class TaskRestControllerTest {
 
     @Mock
     TaskRepository taskRepository;
@@ -33,7 +33,7 @@ public class TaskControllerTest {
     MessageSource messageSource;
 
     @InjectMocks
-    TaskController controller;
+    TaskRestController controller;
 
     @Test
     public void handleGetAllTasks_ReturnValidResponseEntity() {
