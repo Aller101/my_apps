@@ -11,6 +11,7 @@ import java.util.UUID;
 import org.springframework.context.MessageSource;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -25,12 +26,12 @@ import org.springframework.web.util.UriComponentsBuilder;
  */
 @RestController
 @RequestMapping("api/tasks/")
-public class TaskController {
+public class TaskRestController {
 
     private final TaskRepository taskRepository;
     private final MessageSource messageSource;
 
-    public TaskController(TaskRepository taskRepository,
+    public TaskRestController(TaskRepository taskRepository,
             MessageSource messageSource) {
         this.taskRepository = taskRepository;
         this.messageSource = messageSource;
@@ -46,6 +47,7 @@ public class TaskController {
     }
 
     @PostMapping
+    @Transactional
     public ResponseEntity<?> handleAddNewTask(@RequestBody TaskPayload payload,
             UriComponentsBuilder uriComponentsBuilder,
             Locale locale) {

@@ -1,0 +1,5 @@
+spring:
+  datasource:
+    url: jdbc:tc:postgresql:14:///sandbox?TC_DAEMON=true
+    
+#    tc - допп. преф. для тест контейн.
