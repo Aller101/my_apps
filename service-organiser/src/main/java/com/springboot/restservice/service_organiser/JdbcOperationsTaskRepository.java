@@ -24,13 +24,13 @@ public class JdbcOperationsTaskRepository implements TaskRepository, RowMapper<T
 
     @Override
     public List<Task> findAll() {
-        return jdbcOperations.query("select * from t_task", this);
+        return jdbcOperations.query("select * from my_schema.t_task", this);
     }
 
     @Override
     public void save(Task task) {
         this.jdbcOperations.update("""
-                                   insert into t_task(id, c_details, c_completed)
+                                   insert into my_schema.t_task(id, c_details, c_completed)
                                    values (?, ?, ?)
                                    """,
                 new Object[]{task.id(), task.details(), task.completed()});
@@ -38,7 +38,7 @@ public class JdbcOperationsTaskRepository implements TaskRepository, RowMapper<T
 
     @Override
     public Optional<Task> findById(UUID id) {
-        return this.jdbcOperations.query("select * from t_task where id = ?",
+        return this.jdbcOperations.query("select * from my_schema.t_task where id = ?",
                 new Object[]{id}, this)
                 .stream().findFirst();
     }

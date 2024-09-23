@@ -13,7 +13,7 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.transaction.annotation.Transactional;
 
-@Sql("/sql/tasks_rest_controller/test_data.sql")
+//@Sql("/sql/tasks_rest_controller/test_data.sql")
 @Transactional
 @SpringBootTest
 //false - в логах посмотреть на запросы и ответы  
@@ -45,6 +45,11 @@ class TaskRestControllerIT {
                                                              "id":"f8a4bd0d-4a25-4d7b-89eb-95092e12db29",
                                                              "details":"Test two",
                                                              "completed":true
+                                                         },
+                                                         {
+                                                             "id":"80a9f3f3-2d45-4064-8254-7218eb49bc59",
+                                                             "details":"Третья задача",
+                                                             "completed":false
                                                          }
                                                      ]
                                                      """)

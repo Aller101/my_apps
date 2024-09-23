@@ -72,10 +72,10 @@
         </dependency>
                 
         <!--управление миграциями схем бд--> 
-        <dependency>
+<!--        <dependency>
             <groupId>org.flywaydb</groupId>
             <artifactId>flyway-core</artifactId>
-        </dependency>
+        </dependency>-->
                 
         <!--для справки: можно использ. в качестве бд-ых в реал. времен.- Derby или H2, но чтобы тесты не были хрупкими-->
         <!--использую тест контейнерs для того, чтобы бд для интегр. тестов всякий раз поднималась в docker-е-->
